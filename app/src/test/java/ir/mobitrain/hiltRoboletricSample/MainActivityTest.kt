@@ -2,6 +2,7 @@ package ir.mobitrain.hiltRoboletricSample
 
 import android.os.Build.VERSION_CODES.P
 import androidx.test.core.app.launchActivity
+import com.google.common.truth.Truth.assertThat
 import dagger.hilt.android.testing.HiltAndroidRule
 
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -32,6 +33,7 @@ class MainActivityTest {
     fun `test View Model Call Listener`() {
         launchActivity<MainActivity>().onActivity {
             it.viewModel.callTest()
+            assertThat(it.value).isEqualTo(20)
         }
     }
 
